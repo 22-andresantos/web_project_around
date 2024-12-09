@@ -1,0 +1,123 @@
+.profile {
+  max-width: 880px;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.profile__info {
+  max-width: 415px;
+  padding: 22px 0 21px 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile__title {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 500;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff;
+}
+
+.profile__subtitle {
+  margin: 0;
+  padding-top: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff;
+}
+
+.profile__button {
+  max-width: 24px;
+  max-height: 24px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  margin: 14px 0 0 17px;
+}
+
+.profile__button-edit {
+  display: grid;
+  place-self: center;
+}
+
+.profile__button-add {
+  min-width: 150px;
+  height: 50px;
+  padding: 0;
+  margin: 13px 0 14px 165px;
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.profile__button-vector {
+  display: grid;
+  place-self: center;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__button {
+    margin: 14px 18px 0 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    max-width: 282px;
+    padding-top: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile__info {
+    max-width: 282px;
+    padding: 30px 0 36px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile__title {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .profile__subtitle {
+    padding-top: 14px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .profile__button {
+    max-width: 18px;
+    max-height: 18px;
+    margin: 0 0 0 10px;
+  }
+
+  .profile__button-edit {
+    display: grid;
+    place-self: center;
+  }
+
+  .profile__button-add {
+    width: 282px;
+    height: 50px;
+    padding: 0;
+    margin: auto;
+  }
+
+  .profile__button-vector {
+    display: grid;
+    place-self: center;
+  }
+}

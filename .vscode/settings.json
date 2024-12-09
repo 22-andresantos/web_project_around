@@ -1,0 +1,62 @@
+{
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.language": "en,pt-BR,pt",
+  "cSpell.words": [
+    "Aeropress",
+    "ateliês",
+    "Berea",
+    "Beuys",
+    "Bootcamp",
+    "Braies",
+    "Burbidge",
+    "Cadwalader's",
+    "Contatos",
+    "Criccieth",
+    "Cricieth",
+    "Desenvolvedor",
+    "econômicas",
+    "energizar",
+    "GALERY",
+    "Glagoleva",
+    "Grevisse",
+    "imperdíveis",
+    "Kenguruka",
+    "Kibira",
+    "Kseniya",
+    "lanchinho",
+    "Latemar",
+    "Midia",
+    "Muramvya",
+    "Patrimônio",
+    "prêmio",
+    "Quiririm",
+    "racialmente",
+    "recepção",
+    "responsiva",
+    "shrekophone",
+    "Steffan",
+    "Taubaté",
+    "Terezinha",
+    "Tripleten",
+    "valeparaibana"
+  ]
+}
