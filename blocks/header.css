@@ -16,18 +16,21 @@
   margin-top: 41px;
 }
 
-@media screen and (max-width: 600px) {
-  .header {
-    max-width: 320px;
-    margin: 0;
+@media screen and (max-width: 900px) {
+  .header__line {
+    width: 99%;
   }
+}
 
+@media screen and (max-width: 680px) {
   .header__vector {
     max-width: 126px;
     max-height: 24px;
+    margin-bottom: 32px;
   }
 
   .header__line {
-    margin-top: 32px;
+    width: 99%;
+    margin: auto;
   }
 }

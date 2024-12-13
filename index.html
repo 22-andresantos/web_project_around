@@ -26,13 +26,51 @@
       </header>
 
       <main class="content">
+        <section class="popup">
+          <div class="popup__container">
+            <img class="popup__button-close" src="/images/Close_Icon.png" />
+
+            <h2 class="popup__title">Editar Perfil</h2>
+
+            <form class="popup__form">
+              <fieldset class="popup__fieldset">
+                <input
+                  class="popup__input popup__input_name"
+                  type="text"
+                  id="heading"
+                  name="heading"
+                  placeholder="Nome"
+                  required
+                />
+
+                <img class="popup__line-name" src="/images/Line_2.png" />
+
+                <input
+                  class="popup__input popup__input_job"
+                  type="text"
+                  id="heading"
+                  name="heading"
+                  placeholder="Sobre mim"
+                  required
+                />
+
+                <img class="popup__line-about" src="/images/Line_2.png" />
+
+                <button class="popup__button-submit" type="submit">
+                  Salvar
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+
         <section class="profile">
           <img class="profile__image" src="./images/Avatar.png" alt="Imagem" />
 
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
 
-            <button class="profile__button">
+            <button class="profile__button-open">
               <img
                 class="profile__button-edit"
                 src="./images/vector_-.png"
@@ -62,11 +100,13 @@
 
             <div class="elements__card-list">
               <p class="elements__title">Vale de Yosemite</p>
-              <img
-                class="elements__group"
-                src="./images/Group.png"
-                alt="Imagem"
-              />
+              <button class="elements__button" type="button">
+                <img
+                  class="elements__button_image"
+                  src="./images/Group.png"
+                  alt="Imagem"
+                />
+              </button>
             </div>
           </div>
 
@@ -79,11 +119,13 @@
 
             <div class="elements__card-list">
               <p class="elements__title">Lago Louise</p>
-              <img
-                class="elements__group"
-                src="./images/Group.png"
-                alt="Imagem"
-              />
+              <button class="elements__button" type="button">
+                <img
+                  class="elements__button_image"
+                  src="./images/Group.png"
+                  alt="Imagem"
+                />
+              </button>
             </div>
           </div>
 
@@ -96,11 +138,13 @@
 
             <div class="elements__card-list">
               <p class="elements__title">Montanhas Care</p>
-              <img
-                class="elements__group"
-                src="./images/Group.png"
-                alt="Imagem"
-              />
+              <button class="elements__button" type="button">
+                <img
+                  class="elements__button_image"
+                  src="./images/Group.png"
+                  alt="Imagem"
+                />
+              </button>
             </div>
           </div>
 
@@ -113,11 +157,13 @@
 
             <div class="elements__card-list">
               <p class="elements__title">Latemar</p>
-              <img
-                class="elements__group"
-                src="./images/Group.png"
-                alt="Imagem"
-              />
+              <button class="elements__button" type="button">
+                <img
+                  class="elements__button_image"
+                  src="./images/Group.png"
+                  alt="Imagem"
+                />
+              </button>
             </div>
           </div>
 
@@ -129,12 +175,14 @@
             />
 
             <div class="elements__card-list">
-              <p class="elements__title">Parque Nacional</p>
-              <img
-                class="elements__group"
-                src="./images/Group.png"
-                alt="Imagem"
-              />
+              <p class="elements__title">Parque Nacional da Vanoise</p>
+              <button class="elements__button" type="button">
+                <img
+                  class="elements__button_image"
+                  src="./images/Group.png"
+                  alt="Imagem"
+                />
+              </button>
             </div>
           </div>
 
@@ -147,11 +195,13 @@
 
             <div class="elements__card-list">
               <p class="elements__title">Lago di Braies</p>
-              <img
-                class="elements__group"
-                src="./images/Group.png"
-                alt="Imagem"
-              />
+              <button class="elements__button" type="button">
+                <img
+                  class="elements__button_image"
+                  src="./images/Group.png"
+                  alt="Imagem"
+                />
+              </button>
             </div>
           </div>
         </section>
@@ -159,5 +209,6 @@
 
       <footer class="footer">&copy; 2024 Around The U.S.</footer>
     </div>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>

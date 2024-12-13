@@ -21,7 +21,7 @@
 .elements__card-list {
   display: flex;
   justify-content: space-between;
-  margin: 25px 15px 31px 21px;
+  margin: 24px 15px 31px 21px;
 }
 
 .elements__title {
@@ -32,12 +32,27 @@
   text-decoration-skip-ink: none;
   color: #000000;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.elements__group {
-  width: 21px;
-  height: 19px;
+.elements__button {
+  border: none;
+  padding: 0;
+  margin-left: 5px;
+  background-color: #ffffff;
+  display: flex;
   align-self: center;
+  cursor: pointer;
+}
+
+.elements__button:hover {
+  opacity: 50%;
+}
+
+.elements__button_active {
+  background-image: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart-filled.svg);
 }
 
 @media screen and (max-width: 900px) {
@@ -51,7 +66,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 680px) {
   .elements {
     margin-top: 36px;
     display: grid;
