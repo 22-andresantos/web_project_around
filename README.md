@@ -18,4 +18,4 @@ Recursos a serem melhorados:
 implementação de Back-End para o site, podendo salvar as interações.
 
 Publicado no Git Hub Pages.
-Link para o site:
+Link para o site: https://22-andresantos.github.io/web_project_around/
