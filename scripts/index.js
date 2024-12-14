@@ -4,8 +4,11 @@ let closedButton = document.querySelector(".popup__button-close");
 
 let popup = document.querySelector(".popup");
 
+let popupToggle = document.querySelector(".profile__button-open");
+
 function openPopup() {
   popup.classList.add("popup__opened");
+  popupToggle.setAttribute("profile__button-open:hover", "opacity:100%");
 }
 
 openButton.addEventListener("click", openPopup);
