@@ -1,10 +1,10 @@
-let openButton = document.querySelector(".profile__button-open");
+const openButton = document.querySelector(".profile__button-open");
 
-let closedButton = document.querySelector(".popup__button-close");
+const closedButton = document.querySelector(".popup__button-close");
 
-let popup = document.querySelector(".popup");
+const popup = document.querySelector(".popup");
 
-let popupToggle = document.querySelector(".profile__button-open");
+const popupToggle = document.querySelector(".profile__button-open");
 
 function openPopup() {
   popup.classList.add("popup__opened");
@@ -19,9 +19,9 @@ function closePopup() {
 
 closedButton.addEventListener("click", closePopup);
 
-let formElement = document.querySelector(".popup");
+const formElement = document.querySelector(".popup");
 
-let handler = document.querySelector(".popup__button-submit");
+const handler = document.querySelector(".popup__button-submit");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -74,33 +74,100 @@ const initialCards = [
 
 const cardContainer = document.querySelector(".cards");
 
-initialCards.forEach((card) => {
+function handleCard(cardLink, cardName) {
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
 
   const imageElement = document.createElement("img");
-  imageElement.src = card.link;
-  imageElement.alt = card.name;
+  imageElement.classList.add("card__img");
+  imageElement.src = cardLink;
+  imageElement.alt = cardName;
 
   const nameElement = document.createElement("p");
-  nameElement.textContent = card.name;
+  nameElement.classList.add("card__title");
+  nameElement.textContent = cardName;
 
   const addElement = document.createElement("button");
   addElement.classList.add("card__like");
+  addElement.addEventListener("click", function (evt) {
+    evt.target.classList.toggle("card__like_active");
+  });
 
   const removeElement = document.createElement("button");
   removeElement.classList.add("card__remove");
+  removeElement.addEventListener("click", function () {
+    cardElement.remove();
+  });
 
-  cardElement.appendChild(imageElement);
-  cardElement.appendChild(nameElement);
-  cardElement.appendChild(addElement);
-  cardElement.appendChild(removeElement);
+  cardElement.append(imageElement);
+  cardElement.append(nameElement);
+  cardElement.append(addElement);
+  cardElement.append(removeElement);
 
-  // cardElement
-  //   .querySelector(".card__like")
-  //   .addEventListener("click", function (evt) {
-  //     evt.target.classList.toggle("card__like_active");
-  //   });
+  cardContainer.append(cardElement);
+}
 
-  cardContainer.appendChild(cardElement);
-});
+function handleCards() {
+  initialCards.forEach((card) => {
+    handleCard(card.link, card.name);
+  });
+}
+
+handleCards();
+
+// function handleLike(evt) {
+//   evt.target.classList.toggle("card__like_active");
+// }
+
+// cardLike.forEach((button) => {
+//   button.addEventListener("click", handleLike);
+// });
+
+const addButton = document.querySelector(".profile__button-add");
+
+const removeButton = document.querySelector(".modal__button-close");
+
+const modal = document.querySelector(".modal");
+
+const modalToggle = document.querySelector(".profile__button-add");
+
+function openModal() {
+  modal.classList.add("modal__opened");
+  modalToggle.setAttribute("profile__button-add:hover", "opacity:100%");
+}
+
+addButton.addEventListener("click", openModal);
+
+function closeModal() {
+  modal.classList.remove("modal__opened");
+}
+
+removeButton.addEventListener("click", closeModal);
+
+const modalElement = document.querySelector(".modal");
+
+const createSubmit = document.querySelector(".modal__button-submit");
+
+function handleCardSubmit(evt) {
+  evt.preventDefault();
+  let nameModal = document.querySelector(".modal__input_name");
+  let linkModal = document.querySelector(".modal__input_link");
+
+  let nameCard = nameModal.value;
+  let linkCard = linkModal.value;
+
+  handleCard(linkCard, nameCard);
+
+  // initialCards.unshift({ nameCard, linkCard });
+
+  nameModal.value = "";
+  linkModal.value = "";
+
+  // cardContainer.innerHTML = "";
+
+  // handleCards();
+}
+
+modalElement.addEventListener("submit", handleCardSubmit);
+
+createSubmit.addEventListener("click", closeModal);
