@@ -72,6 +72,8 @@ const initialCards = [
   },
 ];
 
+// Criação de Cards
+
 const cardContainer = document.querySelector(".cards");
 
 function handleCard(cardLink, cardName) {
@@ -82,6 +84,9 @@ function handleCard(cardLink, cardName) {
   imageElement.classList.add("card__img");
   imageElement.src = cardLink;
   imageElement.alt = cardName;
+  imageElement.onclick = function () {
+    abrirImg(cardLink, cardName);
+  };
 
   const nameElement = document.createElement("p");
   nameElement.classList.add("card__title");
@@ -114,14 +119,7 @@ function handleCards() {
 }
 
 handleCards();
-
-// function handleLike(evt) {
-//   evt.target.classList.toggle("card__like_active");
-// }
-
-// cardLike.forEach((button) => {
-//   button.addEventListener("click", handleLike);
-// });
+7;
 
 const addButton = document.querySelector(".profile__button-add");
 
@@ -144,6 +142,8 @@ function closeModal() {
 
 removeButton.addEventListener("click", closeModal);
 
+// Inserir imagem e nome através do popup
+
 const modalElement = document.querySelector(".modal");
 
 const createSubmit = document.querySelector(".modal__button-submit");
@@ -158,16 +158,22 @@ function handleCardSubmit(evt) {
 
   handleCard(linkCard, nameCard);
 
-  // initialCards.unshift({ nameCard, linkCard });
-
   nameModal.value = "";
   linkModal.value = "";
-
-  // cardContainer.innerHTML = "";
-
-  // handleCards();
 }
 
 modalElement.addEventListener("submit", handleCardSubmit);
 
 createSubmit.addEventListener("click", closeModal);
+
+//Popup Image
+
+function abrirImg(cardLink, cardName) {
+  document.querySelector(".img__src").src = cardLink;
+  document.querySelector(".img__title").textContent = cardName;
+  document.querySelector(".img").style.display = "flex";
+}
+
+function fecharImg() {
+  document.querySelector(".img").style.display = "none";
+}
