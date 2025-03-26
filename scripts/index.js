@@ -1,24 +1,23 @@
+// função abrir e fechar popup Nome e profissão
 const openButton = document.querySelector(".profile__button-open");
 
 const closedButton = document.querySelector(".popup__button-close");
 
 const popup = document.querySelector(".popup");
 
-const popupToggle = document.querySelector(".profile__button-open");
-
 function openPopup() {
-  popup.classList.add("popup__opened");
-  popupToggle.setAttribute("profile__button-open:hover", "opacity:100%");
+  popup.style.display = "flex";
 }
 
 openButton.addEventListener("click", openPopup);
 
 function closePopup() {
-  popup.classList.remove("popup__opened");
+  popup.style.display = "none";
 }
 
 closedButton.addEventListener("click", closePopup);
 
+// inserir nome e profissão
 const formElement = document.querySelector(".popup");
 
 const handler = document.querySelector(".popup__button-submit");
@@ -31,8 +30,8 @@ function handleProfileFormSubmit(evt) {
   let name = nameInput.value;
   let job = jobInput.value;
 
-  let nameProfile = document.querySelector(".profile__title");
-  let jobProfile = document.querySelector(".profile__subtitle");
+  const nameProfile = document.querySelector(".profile__title");
+  const jobProfile = document.querySelector(".profile__subtitle");
 
   nameProfile.textContent = name;
   jobProfile.textContent = job;
@@ -73,7 +72,6 @@ const initialCards = [
 ];
 
 // Criação de Cards
-
 const cardContainer = document.querySelector(".cards");
 
 function handleCard(cardLink, cardName) {
@@ -109,7 +107,7 @@ function handleCard(cardLink, cardName) {
   cardElement.append(addElement);
   cardElement.append(removeElement);
 
-  cardContainer.append(cardElement);
+  cardContainer.prepend(cardElement);
 }
 
 function handleCards() {
@@ -119,31 +117,27 @@ function handleCards() {
 }
 
 handleCards();
-7;
 
+// função abrir e fechar popup do nome e imagem atraves do usuário
 const addButton = document.querySelector(".profile__button-add");
 
 const removeButton = document.querySelector(".modal__button-close");
 
 const modal = document.querySelector(".modal");
 
-const modalToggle = document.querySelector(".profile__button-add");
-
 function openModal() {
-  modal.classList.add("modal__opened");
-  modalToggle.setAttribute("profile__button-add:hover", "opacity:100%");
+  modal.style.display = "flex";
 }
 
 addButton.addEventListener("click", openModal);
 
 function closeModal() {
-  modal.classList.remove("modal__opened");
+  modal.style.display = "none";
 }
 
 removeButton.addEventListener("click", closeModal);
 
 // Inserir imagem e nome através do popup
-
 const modalElement = document.querySelector(".modal");
 
 const createSubmit = document.querySelector(".modal__button-submit");
@@ -167,7 +161,6 @@ modalElement.addEventListener("submit", handleCardSubmit);
 createSubmit.addEventListener("click", closeModal);
 
 //Popup Image
-
 function abrirImg(cardLink, cardName) {
   document.querySelector(".img__src").src = cardLink;
   document.querySelector(".img__title").textContent = cardName;
