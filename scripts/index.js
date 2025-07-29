@@ -17,6 +17,13 @@ function closePopup() {
 
 closedButton.addEventListener("click", closePopup);
 
+// fechando popup com tecla Esc
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closePopup();
+  }
+});
+
 // inserir nome e profissão
 const formElement = document.querySelector(".popup");
 
@@ -137,6 +144,14 @@ function closeModal() {
 
 removeButton.addEventListener("click", closeModal);
 
+// fechando modal com tecla Esc
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closeModal();
+  }
+});
+
 // Inserir imagem e nome através do popup
 const modalElement = document.querySelector(".modal");
 
@@ -161,6 +176,8 @@ modalElement.addEventListener("submit", handleCardSubmit);
 createSubmit.addEventListener("click", closeModal);
 
 //Popup Image
+const imgCard = document.querySelector(".img");
+
 function abrirImg(cardLink, cardName) {
   document.querySelector(".img__src").src = cardLink;
   document.querySelector(".img__title").textContent = cardName;
@@ -170,3 +187,94 @@ function abrirImg(cardLink, cardName) {
 function fecharImg() {
   document.querySelector(".img").style.display = "none";
 }
+
+// fechando modal com tecla Esc
+const img = document.querySelector(".img");
+
+function fecharImagem() {
+  img.style.display = "none";
+}
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    fecharImagem();
+  }
+});
+
+//validação popup editar perfil
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add("popup__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("popup__input-error_active");
+};
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove("popup__input_type_error");
+  errorElement.classList.remove("popup__input-error_active");
+  errorElement.textContent = "";
+};
+
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+};
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add("popup__button-submit_inactive");
+  } else {
+    buttonElement.classList.remove("popup__button-submit_inactive");
+  }
+};
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
+  const buttonElement = formElement.querySelector(".popup__button-submit");
+
+  toggleButtonState(inputList, buttonElement);
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      checkInputValidity(formElement, inputElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".popup__form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+
+    const fieldsetList = Array.from(
+      formElement.querySelectorAll(".popup__fieldset")
+    );
+
+    fieldsetList.forEach((fieldset) => {
+      setEventListeners(fieldset);
+    });
+  });
+};
+
+enableValidation();
+
+// enableValidation({
+//   formSelector: ".popup__form",
+//   inputSelector: ".popup__input",
+//   submitButtonSelector: ".popup__button",
+//   inactiveButtonClass: "popup__button_disabled",
+//   inputErrorClass: "popup__input_type_error",
+//   errorClass: "popup__error_visible"
+// });

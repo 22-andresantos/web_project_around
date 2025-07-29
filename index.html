@@ -36,16 +36,19 @@
 
             <h1 class="popup__title">Editar Perfil</h1>
 
-            <form class="popup__form">
+            <form class="popup__form" novalidate>
               <fieldset class="popup__fieldset">
                 <input
-                  class="popup__input popup__input_name"
+                  class="popup__input"
                   type="text"
                   id="head"
                   name="head"
                   placeholder="Nome"
                   required
+                  minlength="2"
+                  maxlength="40"
                 />
+                <span class="popup__input-error name-input-error"></span>
 
                 <img
                   class="popup__line-name"
@@ -54,13 +57,16 @@
                 />
 
                 <input
-                  class="popup__input popup__input_job"
+                  class="popup__input"
                   type="text"
                   id="About"
                   name="About"
                   placeholder="Sobre mim"
                   required
+                  minlength="2"
+                  maxlength="200"
                 />
+                <span class="popup__input-error about-input-error"></span>
 
                 <img
                   class="popup__line-about"
