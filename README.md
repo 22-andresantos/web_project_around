@@ -1,5 +1,8 @@
 # Tripleten web_project_around
 
+Publicado no Git Hub Pages.
+Link para o site: https://22-andresantos.github.io/web_project_around/
+
 Projeto 7 do Bootcamp de Desenvolvedor Web Tripleten.
 
 Data Inicial: 16/12/2024
@@ -26,5 +29,10 @@ Adicionar Nome e link para imagens, exclusão de imagens, abrindo Popups de form
 Recursos a serem melhorados:
 implementação de Back-End para o site, podendo salvar as interações.
 
-Publicado no Git Hub Pages.
-Link para o site: https://22-andresantos.github.io/web_project_around/
+Projeto 9 do Bootcamp de Desenvolvedor Web Tripleten.
+
+Data Inicial: 01/08/2025
+
+Adicionar validação dos formulários no Javascript.
+
+Adicionar fechamento do Popup, Modal e Card da imagem com a tecla "Esc" e fora do "Modal, Popup e Card".
