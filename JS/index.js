@@ -24,15 +24,22 @@ document.addEventListener("keydown", (evt) => {
   }
 });
 
-// inserir nome e profissão
-const formElement = document.querySelector(".popup");
+// fechando popup fora do elemento
+popup.addEventListener("click", (evt) => {
+  if (evt.target === popup) {
+    closePopup();
+  }
+});
 
-const handler = document.querySelector(".popup__button-submit");
+// inserir nome e profissão
+const popupElement = document.querySelector(".popup");
+
+const handler = document.querySelector(".popup__button");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  let nameInput = document.querySelector(".popup__input_name");
-  let jobInput = document.querySelector(".popup__input_job");
+  let nameInput = document.querySelector(".popup__input-name");
+  let jobInput = document.querySelector(".popup__input-job");
 
   let name = nameInput.value;
   let job = jobInput.value;
@@ -49,7 +56,7 @@ function handleProfileFormSubmit(evt) {
 
 handler.addEventListener("click", closePopup);
 
-formElement.addEventListener("submit", handleProfileFormSubmit);
+popupElement.addEventListener("submit", handleProfileFormSubmit);
 
 const initialCards = [
   {
@@ -152,15 +159,22 @@ document.addEventListener("keydown", (evt) => {
   }
 });
 
+// fechando modal fora do elemento
+modal.addEventListener("click", (evt) => {
+  if (evt.target === modal) {
+    closeModal();
+  }
+});
+
 // Inserir imagem e nome através do popup
 const modalElement = document.querySelector(".modal");
 
-const createSubmit = document.querySelector(".modal__button-submit");
+const createSubmit = document.querySelector(".modal__button");
 
 function handleCardSubmit(evt) {
   evt.preventDefault();
-  let nameModal = document.querySelector(".modal__input_name");
-  let linkModal = document.querySelector(".modal__input_link");
+  let nameModal = document.querySelector(".modal__input-text");
+  let linkModal = document.querySelector(".modal__input-link");
 
   let nameCard = nameModal.value;
   let linkCard = linkModal.value;
@@ -175,7 +189,7 @@ modalElement.addEventListener("submit", handleCardSubmit);
 
 createSubmit.addEventListener("click", closeModal);
 
-//Popup Image
+//Popup card imagem
 const imgCard = document.querySelector(".img");
 
 function abrirImg(cardLink, cardName) {
@@ -188,7 +202,7 @@ function fecharImg() {
   document.querySelector(".img").style.display = "none";
 }
 
-// fechando modal com tecla Esc
+// fechando card imagem com tecla Esc
 const img = document.querySelector(".img");
 
 function fecharImagem() {
@@ -201,7 +215,15 @@ document.addEventListener("keydown", (evt) => {
   }
 });
 
+// fechando card imagem fora do elemento
+img.addEventListener("click", (evt) => {
+  if (evt.target === img) {
+    fecharImagem();
+  }
+});
+
 //validação popup editar perfil
+
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("popup__input_type_error");
@@ -232,21 +254,24 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("popup__button-submit_inactive");
+    buttonElement.classList.add("popup__button-inactive");
   } else {
-    buttonElement.classList.remove("popup__button-submit_inactive");
+    buttonElement.classList.remove("popup__button-inactive");
   }
 };
 
 const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
-  const buttonElement = formElement.querySelector(".popup__button-submit");
+  const inputList = Array.from(
+    formElement.querySelectorAll(".popup__name, .popup__job")
+  );
+  const buttonElement = formElement.querySelector(".popup__button");
 
   toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
@@ -270,11 +295,87 @@ const enableValidation = () => {
 
 enableValidation();
 
-// enableValidation({
-//   formSelector: ".popup__form",
-//   inputSelector: ".popup__input",
-//   submitButtonSelector: ".popup__button",
-//   inactiveButtonClass: "popup__button_disabled",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: "popup__error_visible"
-// });
+//validação popup  cards
+
+const showInputErrorCard = (
+  formElementCard,
+  inputElementCard,
+  errorMessageCard
+) => {
+  const errorElementCard = formElementCard.querySelector(
+    `.${inputElementCard.id}-error`
+  );
+  inputElementCard.classList.add("modal__input_type_error");
+  errorElementCard.textContent = errorMessageCard;
+  errorElementCard.classList.add("modal__input-error_active");
+};
+
+const hideInputErrorCard = (formElementCard, inputElementCard) => {
+  const errorElementCard = formElementCard.querySelector(
+    `.${inputElementCard.id}-error`
+  );
+  inputElementCard.classList.remove("modal__input_type_error");
+  errorElementCard.classList.remove("modal__input-error_active");
+  errorElementCard.textContent = "";
+};
+
+const checkInputValidityCard = (formElementCard, inputElementCard) => {
+  if (!inputElementCard.validity.valid) {
+    showInputErrorCard(
+      formElementCard,
+      inputElementCard,
+      inputElementCard.validationMessage
+    );
+  } else {
+    hideInputErrorCard(formElementCard, inputElementCard);
+  }
+};
+
+const hasInvalidInputCard = (inputListCard) => {
+  return inputListCard.some((inputElementCard) => {
+    return !inputElementCard.validity.valid;
+  });
+};
+
+const toggleButtonStateCard = (inputListCard, buttonElementCard) => {
+  if (hasInvalidInputCard(inputListCard)) {
+    buttonElementCard.classList.add("modal__button-inactive");
+  } else {
+    buttonElementCard.classList.remove("modal__button-inactive");
+  }
+};
+
+const setEventListenersCard = (formElementCard) => {
+  const inputListCard = Array.from(
+    formElementCard.querySelectorAll(".modal__input, .modal__link")
+  );
+  const buttonElementCard = formElementCard.querySelector(".modal__button");
+
+  toggleButtonStateCard(inputListCard, buttonElementCard);
+
+  inputListCard.forEach((inputElementCard) => {
+    inputElementCard.addEventListener("input", function () {
+      checkInputValidityCard(formElementCard, inputElementCard);
+      toggleButtonStateCard(inputListCard, buttonElementCard);
+    });
+  });
+};
+
+const enableValidationCard = () => {
+  const formListCard = Array.from(document.querySelectorAll(".modal__form"));
+  formListCard.forEach((formElementCard) => {
+    formElementCard.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+
+    const fieldsetListCard = Array.from(
+      formElementCard.querySelectorAll(".modal__fieldset")
+    );
+
+    fieldsetListCard.forEach((fieldset) => {
+      setEventListenersCard(fieldset);
+    });
+  });
+};
+
+enableValidationCard();

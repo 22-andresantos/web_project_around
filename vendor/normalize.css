@@ -39,7 +39,7 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
 /* Agrupar conteúdo
@@ -173,11 +173,11 @@ textarea {
  * 1. Mostre o excesso no Edge.
  */
 
-button,
+/* button,
 input {
   /* 1 */
-  overflow: visible;
-}
+  /* overflow: visible; */
+/* } */ */
 
 /**
  * Remova a herança da transformação de texto no Edge, Firefox e IE.
@@ -229,7 +229,7 @@ button:-moz-focusring,
  */
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  padding: 0;
 }
 
 /**

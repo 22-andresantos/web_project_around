@@ -11,7 +11,7 @@
     />
     <meta
       name="keywords"
-      content="desenvolvedor web, Tripleten, web responsivo, HTML, CSS, JavaScript"
+      content="DEV, Tripleten, web responsivo, HTML, CSS, JavaScript"
     />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" />
@@ -34,21 +34,22 @@
               alt="Imagem"
             />
 
-            <h1 class="popup__title">Editar Perfil</h1>
+            <h2 class="popup__title">Editar Perfil</h2>
 
-            <form class="popup__form" novalidate>
+            <form class="popup__form">
               <fieldset class="popup__fieldset">
                 <input
-                  class="popup__input"
+                  class="popup__name popup__input-name"
                   type="text"
-                  id="head"
+                  id="name__input"
                   name="head"
                   placeholder="Nome"
-                  required
                   minlength="2"
                   maxlength="40"
+                  required
                 />
-                <span class="popup__input-error name-input-error"></span>
+
+                <span class="popup__input-error name__input-error"></span>
 
                 <img
                   class="popup__line-name"
@@ -57,16 +58,17 @@
                 />
 
                 <input
-                  class="popup__input"
+                  class="popup__job popup__input-job"
                   type="text"
-                  id="About"
+                  id="job__input"
                   name="About"
                   placeholder="Sobre mim"
-                  required
                   minlength="2"
-                  maxlength="200"
+                  maxlength="40"
+                  required
                 />
-                <span class="popup__input-error about-input-error"></span>
+
+                <span class="popup__input-error job__input-error"></span>
 
                 <img
                   class="popup__line-about"
@@ -74,7 +76,7 @@
                   alt="Imagem"
                 />
 
-                <button class="popup__button-submit" type="submit">
+                <button class="popup__button popup__submit" type="submit">
                   Salvar
                 </button>
               </fieldset>
@@ -95,13 +97,17 @@
             <form class="modal__form">
               <fieldset class="modal__fieldset">
                 <input
-                  class="modal__input modal__input_name"
+                  class="modal__input modal__input-text"
                   type="text"
-                  id="heading"
+                  id="text__input"
                   name="heading"
                   placeholder="Título"
+                  minlength="6"
+                  maxlength="30"
                   required
                 />
+
+                <span class="modal__input-error text__input-error"></span>
 
                 <img
                   class="modal__line-name"
@@ -110,13 +116,16 @@
                 />
 
                 <input
-                  class="modal__input modal__input_link"
-                  type="text"
-                  id="image"
+                  class="modal__link modal__input-link"
+                  type="url"
+                  id="link__input"
                   name="image"
-                  placeholder="Link de imagem"
+                  placeholder="url"
+                  minlength="6"
                   required
                 />
+
+                <span class="modal__input-error link__input-error"></span>
 
                 <img
                   class="modal__line-about"
@@ -124,7 +133,7 @@
                   alt="Imagem"
                 />
 
-                <button class="modal__button-submit" type="submit">
+                <button class="modal__button modal__submit" type="submit">
                   Criar
                 </button>
               </fieldset>
@@ -175,8 +184,10 @@
 
         <div class="cards"></div>
       </main>
-      <footer class="footer">&copy; 2024 Around The U.S.</footer>
+      <footer id="footer" class="footer">
+        <p class="footer__copyright">&copy; 2024 André Santos</p>
+      </footer>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script src="./JS/index.js"></script>
   </body>
 </html>
