@@ -52,7 +52,7 @@ const setEventListeners = (formElement) => {
   });
 };
 
-const enableValidation = () => {
+export const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll(".popup__form"));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
@@ -137,7 +137,7 @@ const setEventListenersCard = (formElementCard) => {
   });
 };
 
-const enableValidationCard = () => {
+export const enableValidationCard = () => {
   const formListCard = Array.from(document.querySelectorAll(".modal__form"));
   formListCard.forEach((formElementCard) => {
     formElementCard.addEventListener("submit", function (evt) {

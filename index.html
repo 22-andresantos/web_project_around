@@ -145,6 +145,7 @@
           </div>
         </section>
 
+        <!-- Expandir popup das imagens do card-->
         <section class="img">
           <div class="img__container">
             <img class="img__src" src="" alt="Card Image" />
@@ -195,7 +196,19 @@
         <p class="footer__copyright">&copy; 2024 André Santos</p>
       </footer>
     </div>
-    <script src="./JS/index.js"></script>
-    <script src="./JS/validate.js"></script>
+
+    <template class="template">
+      <article class="card">
+        <img class="card__img" src="" alt="Card Image" />
+
+        <h2 class="card__title"></h2>
+
+        <button class="card__like"></button>
+
+        <button class="card__remove"></button>
+      </article>
+    </template>
+
+    <script type="module" src="./JS/index.js"></script>
   </body>
 </html>
