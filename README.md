@@ -36,3 +36,19 @@ Data Inicial: 01/08/2025
 Adicionar validação dos formulários no Javascript.
 
 Adicionar fechamento do Popup, Modal e Card da imagem com a tecla "Esc" e fora do "Modal, Popup e Card".
+
+Projeto 10 do Bootcamp de Desenvolvedor Web Tripleten.
+
+Data Inicial: 15/08/2025
+
+Introdução á Programação Orientada a Objetos JavaScript.
+
+Implementação de Interfaces na POO :
+1 - Escalando uma classe JS;
+2 - Manipuladores de Evento;
+3 - Herança;
+4 - Polimorfismo.
+
+JS Modular:
+1 - Encapsulamento e Módulos;
+2 - Export e import.
