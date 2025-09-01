@@ -1,16 +1,8 @@
 import Card from "./card.js";
 
-import { enableValidation, enableValidationCard } from "./FormValidator.js";
+import FormValidator from "./FormValidator.js";
 
-import {
-  openPopup,
-  closePopup,
-  openModal,
-  closeModal,
-  handleCardClick,
-  abrirImg,
-  fecharImg,
-} from "./util.js";
+import { closePopup, closeModal, handleCardClick } from "./util.js";
 
 const initialCards = [
   {
@@ -46,15 +38,35 @@ initialCards.forEach((data) => {
   cardContainer.append(card.generateCard());
 });
 
+// Configuração de validação
+const config = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: ".popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: ".popup__input_invalid",
+};
+
+// Validação
+const profileForm = document.querySelector(".popup__form");
+const imageForm = document.querySelector(".modal__form");
+
+const profileValidator = new FormValidator(config, profileForm);
+profileValidator.enableValidation();
+
+const imageValidator = new FormValidator(config, imageForm);
+imageValidator.enableValidation();
+
 // inserir nome e profissão
 const popupElement = document.querySelector(".popup");
-
-const handler = document.querySelector(".popup__submit");
+const handler = document.querySelector(".popup__button");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  const nameInput = document.querySelector(".popup__input-name");
-  const jobInput = document.querySelector(".popup__input-job");
+
+  const nameInput = document.querySelector("#input__name");
+  const jobInput = document.querySelector("#input__job");
 
   const name = nameInput.value;
   const job = jobInput.value;
@@ -81,8 +93,8 @@ const createSubmit = document.querySelector(".modal__button");
 
 function handleCardSubmit(evt) {
   evt.preventDefault();
-  const nameModal = document.querySelector(".modal__input-text");
-  const linkModal = document.querySelector(".modal__input-link");
+  const nameModal = document.querySelector("#input__text");
+  const linkModal = document.querySelector("#input__link");
 
   const nameCard = nameModal.value;
   const linkCard = linkModal.value;

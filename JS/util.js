@@ -109,3 +109,28 @@ img.addEventListener("click", (evt) => {
     fecharImg();
   }
 });
+
+// Função para resetar o formulário e apagar os avisos
+export function resetForm(popup) {
+  const form = popup.querySelector("form");
+  if (form) {
+    form.reset(); // Resetar os campos do formulário
+    const errorElements = form.querySelectorAll(".popup__input-error");
+    const inputs = form.querySelectorAll(".popup__input");
+
+    // Remove erros e classes de validação
+    errorElements.forEach((errorElement) => {
+      errorElement.textContent = "";
+    });
+    inputs.forEach((input) => {
+      input.classList.remove("invalid-input");
+    });
+
+    // Desativa o botão de envio
+    const submitButton = form.querySelector(".popup__button");
+    if (submitButton) {
+      submitButton.classList.add("popup__button_disabled");
+      submitButton.disabled = true;
+    }
+  }
+}

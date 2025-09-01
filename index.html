@@ -40,12 +40,12 @@
 
             <h2 class="popup__title">Editar Perfil</h2>
 
-            <form class="popup__form">
+            <form class="popup__form" id="popup__form" novalidate>
               <fieldset class="popup__fieldset">
                 <input
-                  class="popup__name popup__input-name"
+                  class="popup__input"
                   type="text"
-                  id="name__input"
+                  id="input__name"
                   name="head"
                   placeholder="Nome"
                   minlength="2"
@@ -53,7 +53,7 @@
                   required
                 />
 
-                <span class="popup__input-error name__input-error"></span>
+                <span class="popup__input-error" id="input__name-error"></span>
 
                 <img
                   class="popup__line-name"
@@ -62,9 +62,9 @@
                 />
 
                 <input
-                  class="popup__job popup__input-job"
+                  class="popup__input"
                   type="text"
-                  id="job__input"
+                  id="input__job"
                   name="About"
                   placeholder="Sobre mim"
                   minlength="2"
@@ -72,7 +72,7 @@
                   required
                 />
 
-                <span class="popup__input-error job__input-error"></span>
+                <span class="popup__input-error" id="input__job-error"></span>
 
                 <img
                   class="popup__line-about"
@@ -80,7 +80,7 @@
                   alt="Line Image"
                 />
 
-                <button class="popup__button popup__submit" type="submit">
+                <button class="popup__button" type="submit" disabled>
                   Salvar
                 </button>
               </fieldset>
@@ -98,12 +98,12 @@
 
             <h2 class="modal__title">Novo Local</h2>
 
-            <form class="modal__form">
+            <form class="modal__form" novalidate>
               <fieldset class="modal__fieldset">
                 <input
-                  class="modal__input modal__input-text"
+                  class="popup__input"
                   type="text"
-                  id="text__input"
+                  id="input__text"
                   name="heading"
                   placeholder="Título"
                   minlength="6"
@@ -111,7 +111,7 @@
                   required
                 />
 
-                <span class="modal__input-error text__input-error"></span>
+                <span class="popup__input-error" id="input__text-error"></span>
 
                 <img
                   class="modal__line-name"
@@ -120,16 +120,16 @@
                 />
 
                 <input
-                  class="modal__link modal__input-link"
+                  class="popup__input"
                   type="url"
-                  id="link__input"
+                  id="input__link"
                   name="image"
                   placeholder="url"
                   minlength="6"
                   required
                 />
 
-                <span class="modal__input-error link__input-error"></span>
+                <span class="popup__input-error" id="input__link-error"></span>
 
                 <img
                   class="modal__line-about"
@@ -137,7 +137,11 @@
                   alt="Line Image"
                 />
 
-                <button class="modal__button modal__submit" type="submit">
+                <button
+                  class="modal__button popup__button"
+                  type="submit"
+                  disabled
+                >
                   Criar
                 </button>
               </fieldset>
