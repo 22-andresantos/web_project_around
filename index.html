@@ -30,23 +30,26 @@
       </header>
 
       <main class="content">
-        <section class="popup">
+        <!-- Expandir popup do perfil -->
+        <section class="popup popup__profile">
           <div class="popup__container">
-            <img
-              class="popup__button-close"
-              src="./images/Close_Icon.png"
-              alt="Button Close"
-            />
+            <button class="button button__close">
+              <img
+                class="button__popup-close"
+                src="./images/Close_Icon.png"
+                alt="Button Close"
+              />
+            </button>
 
             <h2 class="popup__title">Editar Perfil</h2>
 
-            <form class="popup__form" id="popup__form" novalidate>
+            <form class="popup__form" name="profile" novalidate>
               <fieldset class="popup__fieldset">
                 <input
                   class="popup__input"
                   type="text"
                   id="input__name"
-                  name="head"
+                  name="userName"
                   placeholder="Nome"
                   minlength="2"
                   maxlength="40"
@@ -65,7 +68,7 @@
                   class="popup__input"
                   type="text"
                   id="input__job"
-                  name="About"
+                  name="userJob"
                   placeholder="Sobre mim"
                   minlength="2"
                   maxlength="40"
@@ -80,7 +83,7 @@
                   alt="Line Image"
                 />
 
-                <button class="popup__button" type="submit" disabled>
+                <button class="button button__submit" type="submit" disabled>
                   Salvar
                 </button>
               </fieldset>
@@ -88,23 +91,26 @@
           </div>
         </section>
 
-        <section class="modal">
-          <div class="modal__container">
-            <img
-              class="modal__button-close"
-              src="./images/Close_Icon.png"
-              alt="Button Close"
-            />
+        <!-- Expandir popup para adicionar imagem e nome do card  -->
+        <section class="popup popup__add">
+          <div class="popup__container">
+            <button class="button button__close">
+              <img
+                class="button__popup-close"
+                src="./images/Close_Icon.png"
+                alt="Button Close"
+              />
+            </button>
 
-            <h2 class="modal__title">Novo Local</h2>
+            <h2 class="popup__title">Novo Local</h2>
 
-            <form class="modal__form" novalidate>
-              <fieldset class="modal__fieldset">
+            <form class="popup__form" novalidate>
+              <fieldset class="popup__fieldset">
                 <input
                   class="popup__input"
                   type="text"
                   id="input__text"
-                  name="heading"
+                  name="title"
                   placeholder="Título"
                   minlength="6"
                   maxlength="30"
@@ -114,7 +120,7 @@
                 <span class="popup__input-error" id="input__text-error"></span>
 
                 <img
-                  class="modal__line-name"
+                  class="popup__line-name"
                   src="./images/Line_2.png"
                   alt="Line Image"
                 />
@@ -123,7 +129,7 @@
                   class="popup__input"
                   type="url"
                   id="input__link"
-                  name="image"
+                  name="link"
                   placeholder="url"
                   minlength="6"
                   required
@@ -132,16 +138,12 @@
                 <span class="popup__input-error" id="input__link-error"></span>
 
                 <img
-                  class="modal__line-about"
+                  class="popup__line-about"
                   src="./images/Line_2.png"
                   alt="Line Image"
                 />
 
-                <button
-                  class="modal__button popup__button"
-                  type="submit"
-                  disabled
-                >
+                <button class="button button__submit" type="submit" disabled>
                   Criar
                 </button>
               </fieldset>
@@ -150,17 +152,19 @@
         </section>
 
         <!-- Expandir popup das imagens do card-->
-        <section class="img">
-          <div class="img__container">
-            <img class="img__src" src="" alt="Card Image" />
+        <section class="popup popup__img">
+          <div class="popup__container-img">
+            <img class="popup__img-src" src="" alt="Card Image" />
 
-            <h2 class="img__title"></h2>
+            <h2 class="popup__img-title"></h2>
 
-            <img
-              class="img__button-close"
-              src="./images/Close_Icon.png"
-              alt="Button close"
-            />
+            <button class="button button__close">
+              <img
+                class="button__popup-close"
+                src="./images/Close_Icon.png"
+                alt="Button close"
+              />
+            </button>
           </div>
         </section>
 
@@ -174,9 +178,9 @@
           <div class="profile__info">
             <h2 class="profile__title">Jacques Cousteau</h2>
 
-            <button class="profile__button-open">
+            <button class="button button__profile-open">
               <img
-                class="profile__button-edit"
+                class="button__profile-edit"
                 src="./images/vector_-.png"
                 alt="Button Open"
               />
@@ -185,17 +189,19 @@
             <h2 class="profile__subtitle">Explorador</h2>
           </div>
 
-          <button class="profile__button-add">
+          <button class="button button__profile-add">
             <img
-              class="profile__button-vector"
+              class="button__profile-card"
               src="./images/vector_+.png"
               alt="Button Open"
             />
           </button>
         </section>
 
+        <!-- Apresentação dos cards -->
         <div class="cards"></div>
       </main>
+
       <footer id="footer" class="footer">
         <p class="footer__copyright">&copy; 2024 André Santos</p>
       </footer>
@@ -207,12 +213,12 @@
 
         <h2 class="card__title"></h2>
 
-        <button class="card__like"></button>
+        <button class="button__like"></button>
 
-        <button class="card__remove"></button>
+        <button class="button__remove"></button>
       </article>
     </template>
 
-    <script type="module" src="./JS/index.js"></script>
+    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
