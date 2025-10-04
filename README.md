@@ -52,3 +52,12 @@ Implementação de Interfaces na POO :
 JS Modular:
 1 - Encapsulamento e Módulos;
 2 - Export e import.
+
+Projeto 11 do Bootcamp de Desenvolvedor Web Tripleten.
+
+Data Inicial: 15/09/2025
+
+1 - Sintaxe de Desestruturação;
+2 - Estrutura de arquivos do projeto;~
+3 - Ouvintes de Eventos;
+4 - NPM (Gerenciador de Pacotes para Node )
