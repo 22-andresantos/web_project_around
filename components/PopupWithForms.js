@@ -1,5 +1,4 @@
 import Popup from "./Popup.js";
-import { formValidator } from "../pages/index.js";
 
 export default class PopupWithForm extends Popup {
   constructor({ handleForm }, popupSelector) {
@@ -35,9 +34,7 @@ export default class PopupWithForm extends Popup {
     this._popupElement
       .querySelector(".popup__form")
       .removeEventListener("submit", this._handlerInput);
-    formValidator.resetInputValidation(
-      this._popupElement.querySelector(".popup__form")
-    );
+
     this._popupElement.querySelector(".popup__form").reset();
   }
 }

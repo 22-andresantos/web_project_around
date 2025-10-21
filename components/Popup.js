@@ -39,6 +39,7 @@ export default class Popup {
     };
 
     this._popup.addEventListener("click", this._clickHandler);
+
     this._keyHandler = (evt) => {
       this._handleEscClose(evt);
     };

@@ -33,6 +33,27 @@ const initialCards = [
   },
 ];
 
+//
+const profileFormConfig = {
+  formSelector: ".popup__form-profile",
+  fieldsetSelector: ".popup__fieldset",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button__submit",
+  inactiveButtonClass: ".button__submit-disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: ".popup__input_error_invalid",
+};
+
+const cardFormConfig = {
+  formSelector: ".popup__form-card",
+  fieldsetSelector: ".popup__fieldset",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button__submit",
+  inactiveButtonClass: ".button__submit-disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: ".popup__input_error_invalid",
+};
+
 export {
   initialCards,
   profileAdd,
@@ -42,130 +63,6 @@ export {
   profileElement,
   profileBtnElement,
   galleryCardElement,
+  profileFormConfig,
+  cardFormConfig,
 };
-
-// função abrir e fechar popup Nome e profissão
-
-// export function openPopup() {
-//   popup.style.display = "flex";
-// }
-
-// openButton.addEventListener("click", openPopup);
-
-// export function closePopup() {
-//   popup.style.display = "none";
-//   popup.removeEventListener("keydown", closePopup);
-// }
-
-// closedButton.addEventListener("click", closePopup);
-
-// // fechando popup com tecla Esc
-// document.addEventListener("keydown", (evt) => {
-//   if (evt.key === "Escape") {
-//     closePopup();
-//   }
-// });
-
-// // fechando popup fora do elemento
-// popup.addEventListener("click", (evt) => {
-//   if (evt.target === popup) {
-//     closePopup();
-//   }
-// });
-
-// função abrir e fechar modal do nome e imagem atraves do usuário
-
-// export function openModal() {
-//   modal.style.display = "flex";
-// }
-
-// addButton.addEventListener("click", openModal);
-
-// export function closeModal() {
-//   modal.style.display = "none";
-//   modal.removeEventListener("keydown", closeModal);
-// }
-
-// removeButton.addEventListener("click", closeModal);
-
-// // fechando modal com tecla Esc
-
-// document.addEventListener("keydown", (evt) => {
-//   if (evt.key === "Escape") {
-//     closeModal();
-//   }
-// });
-
-// // fechando modal fora do elemento
-// modal.addEventListener("click", (evt) => {
-//   if (evt.target === modal) {
-//     closeModal();
-//   }
-// });
-
-// Popup card imagem
-
-// const imgCloseButton = document.querySelector(".button__img-close");
-// const expandedImagePopup = document.querySelector(".img");
-// const expandedImage = document.querySelector(".img__src");
-// const expandedImageTitle = document.querySelector(".img__title");
-
-// // Função para expandir imagens
-// export function handleCardClick(_link, _name) {
-//   abrirImg(expandedImagePopup);
-//   expandedImage.src = this._link;
-//   expandedImage.alt = this._name;
-//   expandedImageTitle.textContent = this._name;
-// }
-
-// export function abrirImg() {
-//   expandedImagePopup.style.display = "flex";
-// }
-
-// export function fecharImg() {
-//   expandedImagePopup.style.display = "none";
-//   expandedImagePopup.removeEventListener("keydown", fecharImg);
-// }
-
-// imgCloseButton.addEventListener("click", fecharImg);
-
-// // fechando card imagem com tecla Esc
-// document.addEventListener("keydown", (evt) => {
-//   if (evt.key === "Escape") {
-//     fecharImg();
-//   }
-// });
-
-// // fechando card imagem fora do elemento
-// const img = document.querySelector(".img");
-
-// img.addEventListener("click", (evt) => {
-//   if (evt.target === img) {
-//     fecharImg();
-//   }
-// });
-
-// // Função para resetar o formulário e apagar os avisos
-// export function resetForm(popup) {
-//   const form = popup.querySelector("form");
-//   if (form) {
-//     form.reset(); // Resetar os campos do formulário
-//     const errorElements = form.querySelectorAll(".popup__input-error");
-//     const inputs = form.querySelectorAll(".popup__input");
-
-//     // Remove erros e classes de validação
-//     errorElements.forEach((errorElement) => {
-//       errorElement.textContent = "";
-//     });
-//     inputs.forEach((input) => {
-//       input.classList.remove("invalid-input");
-//     });
-
-//     // Desativa o botão de envio
-//     const submitButton = form.querySelector(".button__submit");
-//     if (submitButton) {
-//       submitButton.classList.add("button__submit_disabled");
-//       submitButton.disabled = true;
-//     }
-//   }
-// }

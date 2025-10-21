@@ -30,6 +30,36 @@
       </header>
 
       <main class="content">
+        <section class="profile">
+          <img
+            class="profile__image"
+            src="./images/Avatar.png"
+            alt="Profile Image"
+          />
+
+          <div class="profile__info">
+            <h2 class="profile__title">Jacques Cousteau</h2>
+
+            <button class="button button__profile-open">
+              <img
+                class="button__profile-edit"
+                src="./images/vector_-.png"
+                alt="Button Open"
+              />
+            </button>
+
+            <h2 class="profile__subtitle">Explorador</h2>
+          </div>
+
+          <button class="button button__profile-add">
+            <img
+              class="button__profile-card"
+              src="./images/vector_+.png"
+              alt="Button Open"
+            />
+          </button>
+        </section>
+
         <!-- Expandir popup do perfil -->
         <section class="popup popup__profile">
           <div class="popup__container">
@@ -43,7 +73,11 @@
 
             <h2 class="popup__title">Editar Perfil</h2>
 
-            <form class="popup__form" name="profile" novalidate>
+            <form
+              class="popup__form popup__form-profile"
+              name="profile"
+              novalidate
+            >
               <fieldset class="popup__fieldset">
                 <input
                   class="popup__input"
@@ -104,7 +138,7 @@
 
             <h2 class="popup__title">Novo Local</h2>
 
-            <form class="popup__form" novalidate>
+            <form class="popup__form popup__form-card" novalidate>
               <fieldset class="popup__fieldset">
                 <input
                   class="popup__input"
@@ -153,7 +187,7 @@
 
         <!-- Expandir popup das imagens do card-->
         <section class="popup popup__img">
-          <div class="popup__container-img">
+          <div class="popup__img-container">
             <img class="popup__img-src" src="" alt="Card Image" />
 
             <h2 class="popup__img-title"></h2>
@@ -168,42 +202,12 @@
           </div>
         </section>
 
-        <section class="profile">
-          <img
-            class="profile__image"
-            src="./images/Avatar.png"
-            alt="Profile Image"
-          />
-
-          <div class="profile__info">
-            <h2 class="profile__title">Jacques Cousteau</h2>
-
-            <button class="button button__profile-open">
-              <img
-                class="button__profile-edit"
-                src="./images/vector_-.png"
-                alt="Button Open"
-              />
-            </button>
-
-            <h2 class="profile__subtitle">Explorador</h2>
-          </div>
-
-          <button class="button button__profile-add">
-            <img
-              class="button__profile-card"
-              src="./images/vector_+.png"
-              alt="Button Open"
-            />
-          </button>
-        </section>
-
         <!-- Apresentação dos cards -->
         <div class="cards"></div>
       </main>
 
       <footer id="footer" class="footer">
-        <p class="footer__copyright">&copy; 2024 André Santos</p>
+        <p class="footer__copyright">&copy; 2025 André Santos</p>
       </footer>
     </div>
 

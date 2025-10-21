@@ -7,7 +7,6 @@
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  display: none;
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -16,6 +15,7 @@
   -ms-flex-align: center;
   align-items: center;
   z-index: 1;
+  display: none;
 }
 
 .popup__opened {
@@ -90,7 +90,7 @@
 }
 
 /* popup da imagem do card */
-.popup__container-img {
+.popup__img-container {
   width: 816px;
   height: 540px;
   background-color: #ffffff;
@@ -133,7 +133,7 @@
 }
 
 @media screen and (max-width: 920px) {
-  .popup__container-img {
+  .popup__img-container {
     width: 433px;
     height: 540px;
     position: relative;
@@ -181,7 +181,7 @@
 }
 
 @media screen and (max-width: 550px) {
-  .popup__container-img {
+  .popup__img-container {
     width: 240px;
     height: 299px;
     position: relative;

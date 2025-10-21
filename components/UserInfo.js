@@ -1,4 +1,5 @@
 // Renderiza informações sobre o usuário
+
 export default class UserInfo {
   constructor({ nameSelector, jobSelector }) {
     this._nameElement = document.querySelector(nameSelector);
