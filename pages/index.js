@@ -8,10 +8,21 @@ import {
   initialCards,
   cardBtnElement,
   profileBtnElement,
-  galleryCardElement,
   profileFormConfig,
   cardFormConfig,
 } from "../components/Util.js";
+
+// Função de criação dos cards
+function createCard(item) {
+  const createCard = new Card(
+    {
+      title: item.title,
+      link: item.link,
+    },
+    ".template"
+  );
+  return createCard.renderCard();
+}
 
 // renderizar cards iniciais
 const cardSection = new Section(
@@ -19,14 +30,8 @@ const cardSection = new Section(
     items: initialCards,
 
     renderer: (item) => {
-      const createCard = new Card(
-        {
-          name: item.name,
-          link: item.link,
-        },
-        galleryCardElement
-      );
-      cardSection.addItem(createCard.renderCard());
+      const card = createCard(item);
+      cardSection.addItem(card);
     },
   },
 
@@ -38,28 +43,9 @@ cardBtnElement.addEventListener("click", () => {
   const popupCardElement = new PopupWithForm(
     {
       handleForm: ({ title, link }) => {
-        const section = new Section(
-          {
-            items: [
-              {
-                title,
-                link,
-              },
-            ],
-            renderer: (item) => {
-              const createCard = new Card(
-                {
-                  name: item.title,
-                  link: item.link,
-                },
-                galleryCardElement
-              );
-              section.addItem(createCard.renderCard());
-            },
-          },
-          ".cards"
-        );
-        section.renderer();
+        const card = createCard({ title, link });
+        cardSection.addItem(card);
+
         popupCardElement.close();
       },
     },

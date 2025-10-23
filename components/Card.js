@@ -1,16 +1,17 @@
 // Criação de Cards
 import PopupWithImage from "./PopupWithImage.js";
 export default class Card {
-  constructor({ name, link }, galleryCardElement) {
-    this._title = name;
+  constructor({ title, link }, templateSelector) {
+    this._title = title;
     this._link = link;
-    this._containerElement = galleryCardElement;
+    this._templateSelector = templateSelector;
   }
 
   _setEventListeners() {
     this._cardElement.addEventListener("click", this.handleCardClick);
     const popupWithImage = new PopupWithImage(".popup__img");
     this._cardImageElement.addEventListener("click", () => {
+      console.log(this._title);
       popupWithImage.open({
         title: this._title,
         link: this._link,
@@ -31,7 +32,7 @@ export default class Card {
   };
 
   renderCard() {
-    this._cardTemplate = document.querySelector(".template").content;
+    this._cardTemplate = document.querySelector(this._templateSelector).content;
     this._cardElement = this._cardTemplate
       .querySelector(".card")
       .cloneNode(true);
