@@ -105,7 +105,7 @@
 }
 
 /* card buttons */
-.button__remove {
+.button__remove-open {
   border: none;
   width: 18px;
   height: 19.3px;
@@ -116,7 +116,7 @@
   left: 243px;
 }
 
-.button__remove:hover {
+.button__remove-open:hover {
   opacity: 60%;
 }
 

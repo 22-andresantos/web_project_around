@@ -5,17 +5,23 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._popupElement = document.querySelector(popupSelector);
     this._handleForm = handleForm;
+    this._submitButton = this._popupElement.querySelector(
+      "button[type='submit']"
+    );
+    console.log(this._submitButton);
+    this._submitButtonOriginalText = this._submitButton.textContent;
+    console.log(this._submitButtonOriginalText);
   }
 
   _getInputValues(evt) {
     evt.preventDefault();
-    const InputName = this._popupElement.querySelectorAll(".popup__input")[0];
-    const InputJob = this._popupElement.querySelectorAll(".popup__input")[1];
-
-    this._handleForm({
-      [InputName.name]: InputName.value,
-      [InputJob.name]: InputJob.value,
+    const inputList = this._popupElement.querySelectorAll(".popup__input");
+    const formValues = {};
+    inputList.forEach((input) => {
+      formValues[input.name] = input.value;
     });
+
+    this._handleForm(formValues);
   }
 
   setEventListeners(evt) {
@@ -36,5 +42,11 @@ export default class PopupWithForm extends Popup {
       .removeEventListener("submit", this._handlerInput);
 
     this._popupElement.querySelector(".popup__form").reset();
+  }
+
+  renderLoading(isLoading, loadingText = "Salvando...") {
+    this._submitButton.textContent = isLoading
+      ? loadingText
+      : this._submitButtonOriginalText;
   }
 }

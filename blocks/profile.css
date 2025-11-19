@@ -10,6 +10,41 @@
   align-items: center;
 }
 
+.profile__overlay {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+}
+
+.profile__image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  display: block;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.profile__image-edit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.profile__image:hover {
+  opacity: 50%;
+}
+
+.profile__image:hover + .profile__image-edit {
+  opacity: 1;
+}
+
 .profile__info {
   max-width: 417px;
   margin: 22px 0 21px 30px;
@@ -53,63 +88,6 @@
   overflow: hidden;
 }
 
-/* .profile__button-open {
-  width: 24px;
-  height: 24px;
-  background-color: #000000;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: center;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-.profile__button-open:hover {
-  opacity: 60%;
-}
-
-.profile__button-edit {
-  width: 10px;
-  height: 10px;
-}
-
-.profile__button-add {
-  width: 150px;
-  height: 50px;
-  padding: 0;
-  margin: 0 0 0 165px;
-  background: #000000;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: center;
-}
-
-.profile__button-add:hover {
-  opacity: 60%;
-}
-
-.profile__button-vector {
-  width: 22px;
-  height: 22px;
-} */
-
 @media screen and (max-width: 900px) {
   .profile {
     margin: auto;
@@ -119,10 +97,6 @@
   .profile__info {
     width: 417px;
   }
-
-  /* .profile__button-add {
-    margin: 0 0 0 auto;
-  } */
 }
 
 @media screen and (max-width: 740px) {
@@ -177,22 +151,4 @@
     font-size: 14px;
     font-weight: 400;
   }
-
-  /* .profile__button-open {
-    max-width: 18px;
-    height: 18px;
-    margin: 0;
-  }
-
-  .profile__button-edit {
-    width: 7.5px;
-    height: 7.5px;
-  }
-
-  .profile__button-add {
-    width: 282px;
-    height: 50px;
-    padding: 0;
-    margin: auto;
-  } */
 }

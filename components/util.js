@@ -1,38 +1,32 @@
+import Api from "./Api.js";
+import UserInfo from "../components/UserInfo.js";
+
 const profileAdd = document.querySelector(".button__submit");
 const popupElement = document.querySelector(".popup");
 const formListElement = document.querySelectorAll(".popup__form");
 const cardBtnElement = document.querySelector(".button__profile-add");
+const cardBtnDelete = document.querySelector(".button__remove-open");
 const profileElement = document.querySelector(".profile");
 const profileBtnElement = document.querySelector(".button__profile-open");
+const avatarBtnElement = document.querySelector(".profile__image");
 
-const initialCards = [
-  {
-    title: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+// instanciação da Api
+const api = new Api({
+  baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
+  headers: {
+    authorization: "0dcf9fb5-3f22-4ec0-ad4a-45a6e56afe32",
+    "Content-Type": "application/json",
   },
-  {
-    title: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    title: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    title: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    title: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    title: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
+});
 
-//
+// instanciação do UserInfo
+const userInfo = new UserInfo({
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__subtitle",
+  avatarSelector: ".profile__image",
+});
+
+// configurações de validação dos formulários
 const profileFormConfig = {
   formSelector: ".popup__form-profile",
   fieldsetSelector: ".popup__fieldset",
@@ -53,14 +47,39 @@ const cardFormConfig = {
   errorClass: ".popup__input_error_invalid",
 };
 
+const avatarFormConfig = {
+  formSelector: ".popup__form-avatar",
+  fieldsetSelector: ".popup__fieldset",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button__submit",
+  inactiveButtonClass: ".button__submit-disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: ".popup__input_error_invalid",
+};
+
+// const FormConfig = {
+//   formSelector: ".popup__form",
+//   fieldsetSelector: ".popup__fieldset",
+//   inputSelector: ".popup__input",
+//   submitButtonSelector: ".button__submit",
+//   inactiveButtonClass: ".button__submit-disabled",
+//   inputErrorClass: "popup__input_type_error",
+//   errorClass: ".popup__input_error_invalid",
+// };
+
 export {
-  initialCards,
   profileAdd,
   popupElement,
   formListElement,
   cardBtnElement,
+  cardBtnDelete,
   profileElement,
   profileBtnElement,
   profileFormConfig,
   cardFormConfig,
+  avatarFormConfig,
+  api,
+  userInfo,
+  avatarBtnElement,
+  // FormConfig
 };
