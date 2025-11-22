@@ -2,7 +2,7 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForms.js";
-import PopupWithConfirmation from "../components/PopupWithForms.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 import {
   cardBtnElement,
@@ -69,6 +69,16 @@ function createCard(item) {
       isLiked: item.isLiked,
       handleDelete: (card) => {
         console.log(card);
+        confirmPopupDelete.open();
+        confirmPopupDelete.setSubmitAction(() => {
+          api
+            .deleteCard(card._cardId)
+            .then(() => {
+              card.removeCard();
+              confirmPopupDelete.close();
+            })
+            .catch((err) => console.error(err));
+        });
       },
 
       // openConfirmPopup: confirmPopupDelete.open(),
@@ -77,7 +87,7 @@ function createCard(item) {
   );
   return createCard.renderCard();
 }
-// confirmPopupDelete.setEventListeners();
+confirmPopupDelete.setEventListeners();
 
 // renderizar cards iniciais da API
 let cardSection;

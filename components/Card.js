@@ -52,10 +52,10 @@ export default class Card {
     this._likeButton.addEventListener("click", this._handleLike);
   }
 
-  // _handleDelete = () => {
-  //   this._cardElement.remove();
-  //   this._cardElement = null;
-  // };
+  removeCard = () => {
+    this._cardElement.remove();
+    this._cardElement = null;
+  };
 
   _handleLike = () => {
     if (this._isLiked) {
