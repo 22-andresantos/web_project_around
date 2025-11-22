@@ -1,4 +1,4 @@
-import Api from "./Api.js";
+import Api from "../components/Api.js";
 import UserInfo from "../components/UserInfo.js";
 
 const profileAdd = document.querySelector(".button__submit");
