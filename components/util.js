@@ -57,16 +57,6 @@ const avatarFormConfig = {
   errorClass: ".popup__input_error_invalid",
 };
 
-// const FormConfig = {
-//   formSelector: ".popup__form",
-//   fieldsetSelector: ".popup__fieldset",
-//   inputSelector: ".popup__input",
-//   submitButtonSelector: ".button__submit",
-//   inactiveButtonClass: ".button__submit-disabled",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: ".popup__input_error_invalid",
-// };
-
 export {
   profileAdd,
   popupElement,
@@ -81,5 +71,4 @@ export {
   api,
   userInfo,
   avatarBtnElement,
-  // FormConfig
 };

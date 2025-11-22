@@ -14,7 +14,6 @@ import {
   api,
   userInfo,
   avatarBtnElement,
-  // FormConfig
 } from "../components/Util.js";
 
 // obter informações do usuário da API
@@ -55,7 +54,11 @@ profileBtnElement.addEventListener("click", () => {
   popupProfile.setEventListeners();
   popupProfile.open();
 });
-
+// instanciar um popup de delete
+// criar um atributo ondelete na classe card
+// o valor do ondelete será a abertura do popup criado no primeiro passo
+const confirmPopupDelete = new PopupWithConfirmation(".popup__delete");
+console.log(confirmPopupDelete);
 // Função de criação dos cards
 function createCard(item) {
   const createCard = new Card(
@@ -64,11 +67,17 @@ function createCard(item) {
       link: item.link,
       cardId: item._id,
       isLiked: item.isLiked,
+      handleDelete: (card) => {
+        console.log(card);
+      },
+
+      // openConfirmPopup: confirmPopupDelete.open(),
     },
     ".template"
   );
   return createCard.renderCard();
 }
+// confirmPopupDelete.setEventListeners();
 
 // renderizar cards iniciais da API
 let cardSection;
@@ -142,13 +151,14 @@ avatarBtnElement.addEventListener("click", () => {
 });
 
 //Popup deletar Card
+
 // const confirmPopupDelete = new PopupWithConfirmation(
-//   handleForm(openConfirmPopup),
+//   { handleForm: console.log("confirmation") },
 //   ".popup__delete"
 // );
 // confirmPopupDelete.setEventListeners();
 // let confirmDeletePopup = null;
-// function openConfirmPopup(handleDeleteCard) {
+// function openConfirmPopup(action) {
 //   confirmDeletePopup = handleDeleteCard;
 //   confirmDeletePopup.setSubmitDelete(() => {
 //     if (confirmDeletePopup) {

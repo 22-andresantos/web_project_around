@@ -34,17 +34,20 @@ export default class Card {
       popupWithImage.setEventListeners();
     });
 
-    if (this._deleteButton) {
-      this._deleteButton.addEventListener("click", () => {
-        if (this._openConfirmPopup) {
-          this._openConfirmPopup(() => {
-            this._handleDelete(this._cardId, this._cardElement);
-          });
-        }
-      });
-    }
+    // if (this._deleteButton) {
+    //   this._deleteButton.addEventListener("click", () => {
+    //     if (this._openConfirmPopup) {
+    //       console.log("clicou no delete");
+    //       this._openConfirmPopup(() => {
+    //         this._handleDelete(this._cardId, this._cardElement);
+    //       });
+    //     }
+    //   });
+    // }
 
-    // this._deleteButton.addEventListener("click", this._handleDelete);
+    this._deleteButton.addEventListener("click", () =>
+      this._handleDelete(this)
+    );
 
     this._likeButton.addEventListener("click", this._handleLike);
   }
