@@ -9,7 +9,6 @@ import {
   profileBtnElement,
   profileFormConfig,
   cardFormConfig,
-  cardBtnDelete,
   avatarFormConfig,
   api,
   userInfo,
@@ -54,12 +53,9 @@ profileBtnElement.addEventListener("click", () => {
   popupProfile.setEventListeners();
   popupProfile.open();
 });
-// instanciar um popup de delete
-// criar um atributo ondelete na classe card
-// o valor do ondelete será a abertura do popup criado no primeiro passo
-const confirmPopupDelete = new PopupWithConfirmation(".popup__delete");
-console.log(confirmPopupDelete);
+
 // Função de criação dos cards
+const confirmPopupDelete = new PopupWithConfirmation(".popup__delete");
 function createCard(item) {
   const createCard = new Card(
     {
@@ -68,7 +64,6 @@ function createCard(item) {
       cardId: item._id,
       isLiked: item.isLiked,
       handleDelete: (card) => {
-        console.log(card);
         confirmPopupDelete.open();
         confirmPopupDelete.setSubmitAction(() => {
           api
@@ -80,8 +75,6 @@ function createCard(item) {
             .catch((err) => console.error(err));
         });
       },
-
-      // openConfirmPopup: confirmPopupDelete.open(),
     },
     ".template"
   );
@@ -160,34 +153,6 @@ avatarBtnElement.addEventListener("click", () => {
   popupAvatarElement.open();
 });
 
-//Popup deletar Card
-
-// const confirmPopupDelete = new PopupWithConfirmation(
-//   { handleForm: console.log("confirmation") },
-//   ".popup__delete"
-// );
-// confirmPopupDelete.setEventListeners();
-// let confirmDeletePopup = null;
-// function openConfirmPopup(action) {
-//   confirmDeletePopup = handleDeleteCard;
-//   confirmDeletePopup.setSubmitDelete(() => {
-//     if (confirmDeletePopup) {
-//       confirmDeletePopup();
-//     }
-//     confirmPopupDelete.close();
-//   });
-//   confirmPopupDelete.open();
-// }
-
-// function handleDeleteCard(cardId, cardElement) {
-//   api
-//     .deleteCard(cardId)
-//     .then(() => {
-//       cardElement.remove();
-//     })
-//     .catch((err) => console.error(err));
-// }
-
 // Validação Profile e Card
 const formValidatorProfile = new FormValidator(profileFormConfig);
 const formValidatorCard = new FormValidator(cardFormConfig);
@@ -195,6 +160,3 @@ const formValidatorAvatar = new FormValidator(avatarFormConfig);
 formValidatorProfile.enableValidation();
 formValidatorCard.enableValidation();
 formValidatorAvatar.enableValidation();
-
-// const formValidator = new FormValidator(FormConfig);
-// formValidator.enableValidation();
