@@ -1,6 +1,6 @@
 // Criação de Cards
-import PopupWithImage from "../components/PopupWithImage.js";
-import { api } from "../components/Util.js";
+import PopupWithImage from "./PopupWithImage.js";
+import { api } from "./Util.js";
 
 export default class Card {
   constructor(

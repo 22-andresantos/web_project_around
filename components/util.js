@@ -1,5 +1,5 @@
-import Api from "../components/Api.js";
-import UserInfo from "../components/UserInfo.js";
+import Api from "./Api.js";
+import UserInfo from "./UserInfo.js";
 
 const profileAdd = document.querySelector(".button__submit");
 const popupElement = document.querySelector(".popup");

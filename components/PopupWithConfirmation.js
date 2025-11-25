@@ -1,4 +1,5 @@
-import Popup from "../components/Popup";
+// função de confirmação de deletar o card
+import Popup from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {

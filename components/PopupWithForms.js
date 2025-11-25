@@ -1,4 +1,5 @@
-import Popup from "../components/Popup";
+// função de envio dos formulários
+import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
   constructor({ handleForm }, popupSelector) {
