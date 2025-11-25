@@ -13,7 +13,7 @@ import {
   api,
   userInfo,
   avatarBtnElement,
-} from "../components/Util_temp.js";
+} from "../components/Util.js";
 
 // obter informações do usuário da API
 api
