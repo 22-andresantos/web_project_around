@@ -1,0 +1,19 @@
+{
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "description": "Publicado no Git Hub Pages. Link para o site: https://22-andresantos.github.io/web_project_around/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Test Json\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/22-andresantos/web_project_around.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/22-andresantos/web_project_around/issues"
+  },
+  "homepage": "https://github.com/22-andresantos/web_project_around#readme"
+}
